@@ -18,6 +18,7 @@ const Search = () => import('@/views/search/Search.vue')
 const AdminLayout = () => import('@/views/admin/AdminLayout.vue')
 const AdminDashboard = () => import('@/views/admin/Dashboard.vue')
 const AdminProducts = () => import('@/views/admin/Products.vue')
+const AdminCategories = () => import('@/views/admin/Categories.vue')
 const AdminOrders = () => import('@/views/admin/Orders.vue')
 const AdminUsers = () => import('@/views/admin/Users.vue')
 
@@ -110,6 +111,12 @@ const routes = [
         name: 'AdminProducts',
         component: AdminProducts,
         meta: { title: '商品管理' }
+      },
+      {
+        path: 'categories',
+        name: 'AdminCategories',
+        component: AdminCategories,
+        meta: { title: '分类管理' }
       },
       {
         path: 'orders',

@@ -20,6 +20,10 @@
           <el-icon><Goods /></el-icon>
           <span>商品管理</span>
         </el-menu-item>
+        <el-menu-item index="/admin/categories">
+          <el-icon><Grid /></el-icon>
+          <span>分类管理</span>
+        </el-menu-item>
         <el-menu-item index="/admin/orders">
           <el-icon><Document /></el-icon>
           <span>订单管理</span>
@@ -78,7 +82,7 @@
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
-import { Odometer, Goods, Document, User, Menu, House } from '@element-plus/icons-vue'
+import { Odometer, Goods, Document, User, Menu, House, Grid } from '@element-plus/icons-vue'
 
 const router = useRouter()
 const userStore = useUserStore()
