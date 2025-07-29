@@ -1,0 +1,8 @@
+// 引入变量和 mixin
+@use './variables.scss' as *;
+@use './responsive.scss' as *;
+
+// 引入样式文件
+@import './reset.scss';
+@import './element-plus.scss';
+@import './common.scss';

@@ -1,0 +1,185 @@
+// 响应式设计
+
+// 媒体查询 Mixins
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin mobile-only {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+// 响应式容器
+.container {
+  @include mobile {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  @include tablet {
+    padding: 0 var(--spacing-md);
+  }
+  
+  @include desktop {
+    padding: 0 var(--spacing-lg);
+  }
+}
+
+// 响应式网格
+.grid {
+  display: grid;
+  gap: var(--spacing-md);
+  
+  &.grid-1 {
+    grid-template-columns: 1fr;
+  }
+  
+  &.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+    
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+    
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+    
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  &.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+    
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+// 响应式显示/隐藏
+.mobile-only {
+  @include tablet-up {
+    display: none !important;
+  }
+}
+
+.tablet-up {
+  @include mobile-only {
+    display: none !important;
+  }
+}
+
+.desktop-only {
+  @include mobile {
+    display: none !important;
+  }
+  
+  @include tablet {
+    display: none !important;
+  }
+}
+
+// 响应式文字大小
+.responsive-title {
+  font-size: var(--font-size-title);
+  
+  @include mobile {
+    font-size: var(--font-size-xl);
+  }
+}
+
+.responsive-subtitle {
+  font-size: var(--font-size-xl);
+  
+  @include mobile {
+    font-size: var(--font-size-lg);
+  }
+}
+
+// 响应式间距
+.responsive-padding {
+  padding: var(--spacing-xl);
+  
+  @include mobile {
+    padding: var(--spacing-md);
+  }
+  
+  @include tablet {
+    padding: var(--spacing-lg);
+  }
+}
+
+.responsive-margin {
+  margin: var(--spacing-xl);
+  
+  @include mobile {
+    margin: var(--spacing-md);
+  }
+  
+  @include tablet {
+    margin: var(--spacing-lg);
+  }
+}
+
+// 响应式卡片
+.responsive-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--shadow-light);
+  padding: var(--spacing-lg);
+  transition: var(--transition-normal);
+
+  @include mobile {
+    border-radius: var(--border-radius-small);
+    padding: var(--spacing-md);
+  }
+}
+
+// 响应式按钮
+.responsive-button {
+  border-radius: var(--border-radius-large);
+  font-weight: 500;
+  transition: var(--transition-normal);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+
+  @include mobile {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+}

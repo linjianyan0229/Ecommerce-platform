@@ -1,0 +1,208 @@
+// Element Plus 主题定制
+
+// 覆盖 Element Plus 默认样式
+.el-button {
+  border-radius: var(--border-radius-large);
+  font-weight: 500;
+  transition: var(--transition-normal);
+  
+  &.el-button--primary {
+    background-color: var(--color-button);
+    border-color: var(--color-button);
+    
+    &:hover {
+      background-color: var(--color-button-hover);
+      border-color: var(--color-button-hover);
+    }
+  }
+  
+  &.el-button--default {
+    background-color: var(--color-bg-card);
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
+    
+    &:hover {
+      background-color: var(--color-bg-hover);
+      border-color: var(--color-button);
+      color: var(--color-button);
+    }
+  }
+}
+
+.el-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--shadow-light);
+  transition: var(--transition-normal);
+  
+  .el-card__header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+  
+  .el-card__body {
+    padding: var(--spacing-lg);
+  }
+}
+
+.el-input {
+  .el-input__wrapper {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-medium);
+    box-shadow: none;
+    
+    &:hover {
+      border-color: var(--color-button);
+    }
+    
+    &.is-focus {
+      border-color: var(--color-button);
+      box-shadow: 0 0 0 2px rgba(169, 195, 166, 0.2);
+    }
+  }
+  
+  .el-input__inner {
+    color: var(--color-text-primary);
+    
+    &::placeholder {
+      color: var(--color-text-muted);
+    }
+  }
+}
+
+.el-select {
+  .el-select__wrapper {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-medium);
+    box-shadow: none;
+    
+    &:hover {
+      border-color: var(--color-button);
+    }
+    
+    &.is-focused {
+      border-color: var(--color-button);
+      box-shadow: 0 0 0 2px rgba(169, 195, 166, 0.2);
+    }
+  }
+}
+
+.el-dropdown-menu {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--shadow-medium);
+  
+  .el-dropdown-menu__item {
+    color: var(--color-text-primary);
+    
+    &:hover {
+      background-color: var(--color-bg-hover);
+      color: var(--color-button);
+    }
+  }
+}
+
+.el-menu {
+  background-color: var(--color-bg-card);
+  border-right: 1px solid var(--color-border);
+  
+  .el-menu-item {
+    color: var(--color-text-primary);
+    
+    &:hover {
+      background-color: var(--color-bg-hover);
+      color: var(--color-button);
+    }
+    
+    &.is-active {
+      background-color: rgba(169, 195, 166, 0.1);
+      color: var(--color-button);
+    }
+  }
+  
+  .el-sub-menu__title {
+    color: var(--color-text-primary);
+    
+    &:hover {
+      background-color: var(--color-bg-hover);
+      color: var(--color-button);
+    }
+  }
+}
+
+.el-table {
+  background-color: var(--color-bg-card);
+  
+  th.el-table__cell {
+    background-color: var(--color-bg-light);
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-title);
+  }
+  
+  td.el-table__cell {
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .el-table__row {
+    &:hover {
+      background-color: var(--color-bg-hover);
+    }
+  }
+}
+
+.el-pagination {
+  .el-pagination__total,
+  .el-pagination__jump {
+    color: var(--color-text-primary);
+  }
+  
+  .btn-prev,
+  .btn-next {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    
+    &:hover {
+      color: var(--color-button);
+    }
+  }
+  
+  .el-pager li {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    
+    &:hover {
+      color: var(--color-button);
+    }
+    
+    &.is-active {
+      background-color: var(--color-button);
+      border-color: var(--color-button);
+      color: white;
+    }
+  }
+}
+
+.el-dialog {
+  background-color: var(--color-bg-card);
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--shadow-heavy);
+  
+  .el-dialog__header {
+    border-bottom: 1px solid var(--color-border);
+    
+    .el-dialog__title {
+      color: var(--color-text-title);
+    }
+  }
+  
+  .el-dialog__body {
+    color: var(--color-text-primary);
+  }
+}

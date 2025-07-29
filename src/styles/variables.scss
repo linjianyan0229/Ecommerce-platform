@@ -1,0 +1,128 @@
+// 自然柔和风格色彩变量
+:root {
+  // 主要颜色
+  --color-bg-primary: #f5f5f1;        // 背景色：淡米色
+  --color-text-primary: #4a593d;      // 主要文字：深绿色
+  --color-text-title: #6e8b67;        // 标题文字：中等绿色
+  --color-bg-card: #fffcf6;           // 卡片背景：奶白色
+  --color-border: #e4ddd3;            // 边框颜色：淡棕色
+  --color-button: #a9c3a6;            // 按钮颜色：淡绿色
+  --color-button-hover: #8fb58b;      // 按钮悬停：较深绿色
+  
+  // 辅助颜色
+  --color-text-secondary: #7a8471;    // 次要文字
+  --color-text-muted: #9ca394;        // 弱化文字
+  --color-bg-light: #faf9f6;          // 浅色背景
+  --color-bg-hover: #f0efeb;          // 悬停背景
+  --color-success: #67c23a;           // 成功色
+  --color-warning: #e6a23c;           // 警告色
+  --color-danger: #f56c6c;            // 危险色
+  --color-info: #909399;              // 信息色
+  
+  // 圆角
+  --border-radius-small: 8px;
+  --border-radius-medium: 15px;
+  --border-radius-large: 30px;
+  
+  // 阴影
+  --shadow-light: 0 2px 8px rgba(74, 89, 61, 0.08);
+  --shadow-medium: 0 4px 16px rgba(74, 89, 61, 0.12);
+  --shadow-heavy: 0 8px 24px rgba(74, 89, 61, 0.16);
+  
+  // 间距
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  
+  // 字体大小
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-xxl: 24px;
+  --font-size-title: 28px;
+  
+  // 行高
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-loose: 1.8;
+  
+  // 过渡动画
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+// Element Plus 主题定制
+$colors: (
+  'primary': (
+    'base': #6e8b67,
+  ),
+  'success': (
+    'base': #67c23a,
+  ),
+  'warning': (
+    'base': #e6a23c,
+  ),
+  'danger': (
+    'base': #f56c6c,
+  ),
+  'error': (
+    'base': #f56c6c,
+  ),
+  'info': (
+    'base': #909399,
+  ),
+);
+
+// 响应式断点
+$breakpoints: (
+  'xs': 0,
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'xxl': 1400px
+);
+
+// Mixins
+@mixin card-style {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--shadow-light);
+  padding: var(--spacing-lg);
+}
+
+@mixin button-style {
+  border-radius: var(--border-radius-large);
+  transition: var(--transition-normal);
+  font-weight: 500;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-medium);
+  }
+}
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
