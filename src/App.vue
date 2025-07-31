@@ -1,9 +1,17 @@
 <template>
   <div id="app">
-    <!-- 主布局 -->
-    <AppLayout v-if="!isAdminRoute" />
-    <!-- 管理后台布局 -->
-    <router-view v-else />
+    <!-- 路由加载状态 -->
+    <Suspense>
+      <template #default>
+        <!-- 主布局 -->
+        <AppLayout v-if="!isAdminRoute" />
+        <!-- 管理后台布局 -->
+        <router-view v-else />
+      </template>
+      <template #fallback>
+        <RouteLoading />
+      </template>
+    </Suspense>
   </div>
 </template>
 
@@ -11,6 +19,7 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import AppLayout from '@/components/layout/AppLayout.vue'
+import RouteLoading from '@/components/common/RouteLoading.vue'
 
 const route = useRoute()
 

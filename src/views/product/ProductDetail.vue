@@ -2,16 +2,14 @@
   <div class="product-detail-page">
     <div class="container">
       <!-- 加载状态 -->
-      <div v-if="loading" class="loading-container">
-        <el-skeleton :rows="8" animated />
-      </div>
+      <SkeletonProductDetail v-if="loading" />
 
       <!-- 商品详情 -->
       <div v-else-if="product" class="product-detail">
         <!-- 商品图片 -->
         <div class="product-images">
           <div class="main-image">
-            <img :src="currentImage" :alt="product.name" />
+            <img v-lazy="currentImage" :alt="product.name" />
           </div>
           <div class="image-thumbnails">
             <div
@@ -21,7 +19,7 @@
               :class="{ active: currentImage === image }"
               @click="currentImage = image"
             >
-              <img :src="image" :alt="`${product.name} ${index + 1}`" />
+              <img v-lazy="image" :alt="`${product.name} ${index + 1}`" />
             </div>
           </div>
         </div>
@@ -192,6 +190,7 @@ import { ElMessage } from 'element-plus'
 import { formatPrice, formatDate } from '@/utils'
 import { mockProducts } from '@/utils/mock'
 import ProductCard from '@/components/product/ProductCard.vue'
+import SkeletonProductDetail from '@/components/common/SkeletonProductDetail.vue'
 import { ShoppingCart, Star } from '@element-plus/icons-vue'
 
 const route = useRoute()

@@ -1,7 +1,7 @@
 <template>
   <div class="product-list-item" @click="handleClick">
     <div class="product-image">
-      <img :src="product.image" :alt="product.name" />
+      <img v-lazy="product.image" :alt="product.name" />
     </div>
     
     <div class="product-info">

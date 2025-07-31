@@ -1,26 +1,32 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-// 导入页面组件
-const Home = () => import('@/views/Home.vue')
-const ProductList = () => import('@/views/product/ProductList.vue')
-const ProductDetail = () => import('@/views/product/ProductDetail.vue')
-const Category = () => import('@/views/product/Category.vue')
-const Cart = () => import('@/views/cart/Cart.vue')
-const Order = () => import('@/views/order/Order.vue')
-const OrderDetail = () => import('@/views/order/OrderDetail.vue')
-const Checkout = () => import('@/views/order/Checkout.vue')
-const Login = () => import('@/views/auth/Login.vue')
-const Register = () => import('@/views/auth/Register.vue')
-const Profile = () => import('@/views/user/Profile.vue')
-const Search = () => import('@/views/search/Search.vue')
+// 导入页面组件 - 使用代码分割和命名chunk
+const Home = () => import(/* webpackChunkName: "home" */ '@/views/Home.vue')
 
-// 管理后台页面
-const AdminLayout = () => import('@/views/admin/AdminLayout.vue')
-const AdminDashboard = () => import('@/views/admin/Dashboard.vue')
-const AdminProducts = () => import('@/views/admin/Products.vue')
-const AdminCategories = () => import('@/views/admin/Categories.vue')
-const AdminOrders = () => import('@/views/admin/Orders.vue')
-const AdminUsers = () => import('@/views/admin/Users.vue')
+// 商品相关页面 - 打包到product chunk
+const ProductList = () => import(/* webpackChunkName: "product" */ '@/views/product/ProductList.vue')
+const ProductDetail = () => import(/* webpackChunkName: "product" */ '@/views/product/ProductDetail.vue')
+const Category = () => import(/* webpackChunkName: "product" */ '@/views/product/Category.vue')
+const Search = () => import(/* webpackChunkName: "product" */ '@/views/search/Search.vue')
+
+// 购物和订单相关 - 打包到order chunk
+const Cart = () => import(/* webpackChunkName: "order" */ '@/views/cart/Cart.vue')
+const Order = () => import(/* webpackChunkName: "order" */ '@/views/order/Order.vue')
+const OrderDetail = () => import(/* webpackChunkName: "order" */ '@/views/order/OrderDetail.vue')
+const Checkout = () => import(/* webpackChunkName: "order" */ '@/views/order/Checkout.vue')
+
+// 用户认证相关 - 打包到auth chunk
+const Login = () => import(/* webpackChunkName: "auth" */ '@/views/auth/Login.vue')
+const Register = () => import(/* webpackChunkName: "auth" */ '@/views/auth/Register.vue')
+const Profile = () => import(/* webpackChunkName: "auth" */ '@/views/user/Profile.vue')
+
+// 管理后台页面 - 打包到admin chunk
+const AdminLayout = () => import(/* webpackChunkName: "admin" */ '@/views/admin/AdminLayout.vue')
+const AdminDashboard = () => import(/* webpackChunkName: "admin" */ '@/views/admin/Dashboard.vue')
+const AdminProducts = () => import(/* webpackChunkName: "admin" */ '@/views/admin/Products.vue')
+const AdminCategories = () => import(/* webpackChunkName: "admin" */ '@/views/admin/Categories.vue')
+const AdminOrders = () => import(/* webpackChunkName: "admin" */ '@/views/admin/Orders.vue')
+const AdminUsers = () => import(/* webpackChunkName: "admin" */ '@/views/admin/Users.vue')
 
 const routes = [
   {

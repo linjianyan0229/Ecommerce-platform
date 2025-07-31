@@ -2,7 +2,7 @@
   <div class="product-card" @click="handleCardClick">
     <!-- 商品图片 -->
     <div class="product-image">
-      <img :src="product.image" :alt="product.name" />
+      <img v-lazy="product.image" :alt="product.name" />
       
       <!-- 折扣标签 -->
       <div v-if="discountPercent > 0" class="discount-badge">

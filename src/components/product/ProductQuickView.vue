@@ -7,7 +7,7 @@
   >
     <div v-if="product" class="quick-view-content">
       <div class="product-images">
-        <img :src="product.image" :alt="product.name" />
+        <img v-lazy="product.image" :alt="product.name" />
       </div>
       
       <div class="product-details">

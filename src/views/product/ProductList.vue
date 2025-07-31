@@ -106,40 +106,46 @@
         </div>
         
         <!-- 商品网格/列表 -->
-        <div v-loading="loading" class="products-container">
-          <div
-            v-if="viewMode === 'grid'"
-            class="products-grid"
-          >
-            <ProductCard
-              v-for="product in products"
-              :key="product.id"
-              :product="product"
-              @favorite="handleFavorite"
-              @quick-view="handleQuickView"
-            />
-          </div>
-          
-          <div
-            v-else
-            class="products-list"
-          >
-            <ProductListItem
-              v-for="product in products"
-              :key="product.id"
-              :product="product"
-              @favorite="handleFavorite"
-            />
-          </div>
-          
-          <!-- 空状态 -->
-          <div v-if="!loading && products.length === 0" class="empty-state">
-            <el-empty description="没有找到相关商品">
-              <el-button type="primary" @click="clearFilters">
-                清除筛选条件
-              </el-button>
-            </el-empty>
-          </div>
+        <div class="products-container">
+          <!-- 骨架屏加载状态 -->
+          <SkeletonProductList v-if="loading" :count="pageSize" />
+
+          <!-- 商品内容 -->
+          <template v-else>
+            <div
+              v-if="viewMode === 'grid'"
+              class="products-grid"
+            >
+              <ProductCard
+                v-for="product in products"
+                :key="product.id"
+                :product="product"
+                @favorite="handleFavorite"
+                @quick-view="handleQuickView"
+              />
+            </div>
+
+            <div
+              v-else
+              class="products-list"
+            >
+              <ProductListItem
+                v-for="product in products"
+                :key="product.id"
+                :product="product"
+                @favorite="handleFavorite"
+              />
+            </div>
+
+            <!-- 空状态 -->
+            <div v-if="products.length === 0" class="empty-state">
+              <el-empty description="没有找到相关商品">
+                <el-button type="primary" @click="clearFilters">
+                  清除筛选条件
+                </el-button>
+              </el-empty>
+            </div>
+          </template>
         </div>
         
         <!-- 分页 -->
@@ -171,6 +177,7 @@ import { useRoute, useRouter } from 'vue-router'
 import ProductCard from '@/components/product/ProductCard.vue'
 import ProductListItem from '@/components/product/ProductListItem.vue'
 import ProductQuickView from '@/components/product/ProductQuickView.vue'
+import SkeletonProductList from '@/components/common/SkeletonProductList.vue'
 import { mockProducts, mockCategories } from '@/utils/mock'
 import { Grid, List } from '@element-plus/icons-vue'
 
